@@ -59,21 +59,26 @@ a:hover {
 #wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0;
 }
 
 /* Header */
 #header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   /* padding: 2rem 0; */
   /* padding-top: 5em; Adjust this value to be more than the height of your nav bar */
 }
 
-#header .logo img {
-  max-width: 65px;
+#header .logo {
+  display: flex; /* Makes the container a Flex container */
+  /* align-items: center; Vertically centers the children */
+  max-width: 200px;
+  justify-content: flex-start; /* Aligns children to the start (left) */
+
 }
+
 
 #header nav ul {
   display: flex;
@@ -81,12 +86,21 @@ a:hover {
 }
 
 #header nav ul li {
-  margin-left: 11rem;
+  margin-left: 2rem; /* Adjusted from 11rem to reduce space */
+
 }
 
 #header nav ul li a {
   color: var(--color-text);
   font-weight: 600;
+}
+
+.header {
+    display: flex; /* Makes the container a Flex container */
+    /* align-items: center; /* Vertically centers the children */
+    /* justify-content: flex-start; Aligns children to the start (left)  */
+    padding-left: 0; /* Ensures there's no padding on the left */
+    margin: 0; /* Removes any default margin */
 }
 
 /* Main content */
@@ -106,7 +120,7 @@ a:hover {
   /* animation: gradientAnimation 15s ease infinite; */
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   width: 100%;
   margin: 0;
@@ -125,13 +139,13 @@ a:hover {
 } */
 
 #hero .content {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
 #hero h1 {
-  font-size: 3.5rem;
+  font-size: 5rem;
   margin-bottom: 1.5rem;
   color: #ffffff;
 }
@@ -182,6 +196,72 @@ a:hover {
   font-size: 3rem;
   color: var(--color-primary);
   margin-bottom: 1rem;
+}
+
+.features-container {
+  position: relative;
+  height: 400vh; /* Adjust based on number of features */
+  display: flex;
+}
+
+.feature-text-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+}
+
+.feature-text {
+  position: absolute;
+  text-align: left;
+  max-width: 80%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  padding: 2em;
+
+}
+.feature-text.active {
+  opacity: 1;
+}
+
+.feature-text h3 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.feature-text p {
+  font-size: 1.2em;
+}
+
+.feature-images {
+  position: relative;
+  width: 50%;
+  height: 400vh; /* Should match .features-container height */
+}
+
+.feature-image {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Ensure the first feature is visible initially */
+.feature-text[data-feature="1"],
+.feature-image[data-feature="1"] {
+  opacity: 1;
 }
 
 /* Testimonials */
@@ -327,10 +407,14 @@ textarea:focus {
   right: 0;
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.9); /* Black with 70% opacity */
-  padding: 0.5em 1em; /* Reduced vertical padding */
+  padding: 1em; Reduced vertical padding
   display: flex;
-  justify-content: center; /* Center the content horizontally */
+  justify-content: left; /* Center the content horizontally */
   align-items: center; /* Center the content vertically */
+}
+
+#nav .logo {
+  flex-grow: 0; /* Prevents the logo from growing */
 }
 
 #nav ul {
@@ -343,7 +427,8 @@ textarea:focus {
 }
 
 #nav ul li {
-  margin: 0 1em;
+  margin: 0 10px; Adds some space between list items
+
 }
 
 #nav ul li a {
@@ -563,10 +648,175 @@ html {
   color: #64ffda; /* Your accent color */
   font-weight: bold;
 }
+#typewriter {
+  /* font-family: "Courier New", Courier, monospace; Gives it a typewriter-style font */
+  white-space: pre; /* Ensures the spacing is consistent */
+  font-size: 20px; /* Adjust size as needed */
+  color: #333; /* Text color */
+  margin: 20px; Adds margin for spacing
+  animation: blinkCursor 0.75s step-end infinite; /* Cursor blinking effect */
+}
+
+#typewriter::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .txt-rotate {
   color: #64ffda; /* Your accent color */
 }
 
 .txt-rotate > .wrap {
-  border-right: 0.08em solid #64ffda; /* Creates a blinking cursor effect */
+  /* border-right: 0.08em solid #64ffda; Creates a blinking cursor effect */
 }
+
+/*Sign Up Form*/
+#hero-signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4em;
+}
+
+#hero-signup-form input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+#hero-signup-form input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #1da1f2; /* Use your brand color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  line-height: 1.5; /* Ensure line height is set */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+#hero-signup-form input[type="submit"]:hover {
+  background-color: #0d8ae5; /* Darker shade for hover */
+}
+/* Privacy Note */
+.privacy-note {
+  font-size: 1em;
+  color: #666;
+  margin-top: 2em;
+}
+
+/* How It Works Cards */
+#how-it-works {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#how-it-works .cards-container {
+  position: relative;
+  height: 70vh;
+  width: 90vw;
+  max-width: 1400px;
+  overflow: hidden;
+}
+
+#how-it-works .card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1200px;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+#how-it-works .card-header {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40%;
+  padding: 2em;
+  box-sizing: border-box;
+}
+#how-it-works .card-content {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45%;
+  height: 80%;
+  background-color: #f7f7f7;
+  border-radius: 15px;
+  padding: 2em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center
+}
+#how-it-works .card:first-child {
+  transform: translateX(50%) translateY(50);
+  opacity: 1 !important;
+}
+
+#how-it-works .card h3 {
+  color: #333333;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  transition: transform 0.3s ease, font-size 0.3s ease;
+}
+
+#how-it-works .card p {
+  color: #636363;
+  font-size: 1.2em;
+  line-height: 1.6;
+  transition: opacity 0.3s ease;
+}
+
+#how-it-works .card.active {
+  transform: translateX(-50%) translateY(0);
+}
+#how-it-works .card.prev {
+  transform: translateX(-50%) translateY(-90%);
+}
+#how-it-works .card.prev h3 {
+  transform: translateY(-100%);
+  font-size: 1.5em;
+}
+#how-it-works .card.prev p {
+  opacity: 0;
+}
+
+
+#how-it-works .card:nth-child(1) { z-index: 1; }
+#how-it-works .card:nth-child(2) { z-index: 2; }
+#how-it-works .card:nth-child(3) { z-index: 3; }
+#how-it-works .card:nth-child(4) { z-index: 4; }

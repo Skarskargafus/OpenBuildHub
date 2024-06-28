@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-
-
-
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
 <body class="is-preload main">
@@ -20,15 +16,14 @@
         <!-- Header -->
         <header id="header">
             <nav id="nav">
-              <h2 class="logo">OpenBuild Hub</span>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#signup">Join Now</a></li>
-                </ul>
+              <h2 class="logo">OpenBuild Hub</h2>
+              <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#signup">Join Now</a></li>
+              </ul>
             </nav>
         </header>
-
         <!-- Main -->
         <div id="main" class="main">
 
@@ -36,40 +31,103 @@
             <section id="hero">
               <div class="content">
                   <h1>Empower Your Entrepreneurial Journey with 
-                      <span class="txt-rotate" data-period="2000" data-rotate='[ "Real-time Feedback", "Exclusive Case Studies", "Peer Support", "Expert Insights" ]'></span>
+                      <h1 id="typewriter"></h1>
                   </h1>
                   <p class="major">Join a community of creators building in public. Get real-time feedback, access exclusive case studies, and grow with peer support.</p>
-                  <ul class="actions special">
-                      <li><a href="#signup" class="button primary large scrolly">Join Now</a></li>
-                      <li><a href="#" class="button large">Get Free Guide</a></li>
-                  </ul>
+                  <form id="hero-signup-form" class="signup-form" method="post" action="#">
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Enter your email address"
+                      required
+                    />
+                    <input
+                      type="submit"
+                      value="Join Free & Start Growing"
+                      class="primary"
+                    />
+                  </form>
+                  <p class="privacy-note">
+                    Your data is safe with us. Unsubscribe anytime.
+                  </p>
               </div>
           </section>
 
+
             <!-- Features Section -->
             <section id="features" class="main special">
-                <header class="major">
-                    <h2>Why Join OpenBuild Hub?</h2>
-                </header>
-                <ul class="features">
-                    <li>
-                        <span class="icon solid major style1 fa-comments"></span>
-                        <h3>Real-time Feedback</h3>
-                        <p>Get instant insights from experienced entrepreneurs and creators.</p>
-                    </li>
-                    <li>
-                        <span class="icon solid major style3 fa-copy"></span>
-                        <h3>Exclusive Case Studies</h3>
-                        <p>Learn from detailed analyses of successful projects and businesses.</p>
-                    </li>
-                    <li>
-                        <span class="icon solid major style5 fa-users"></span>
-                        <h3>Supportive Community</h3>
-                        <p>Connect with like-minded individuals who understand your journey.</p>
-                    </li>
-                </ul>
+              <header class="major">
+                <h2>Why Join OpenBuild Hub?</h2>
+              </header>
+              <div class="features-container">
+                <div class="feature-text-container">
+                  <div class="feature-text" data-feature="1">
+                    <h3>Showcase Your Progress</h3>
+                    <p>Share your entrepreneurial journey and gain visibility in real-time. Build your audience as you build your startup.</p>
+                  </div>
+                  <div class="feature-text" data-feature="2">
+                    <h3>Learn from the Best</h3>
+                    <p>Access insights and case studies from successful creators and innovators. Accelerate your growth with proven strategies.</p>
+                  </div>
+                  <div class="feature-text" data-feature="3">
+                    <h3>Build with Confidence</h3>
+                    <p>Get real-time feedback on your projects. Iterate faster and make informed decisions with community support.</p>
+                  </div>
+                  <div class="feature-text" data-feature="4">
+                    <h3>Accelerate Growth</h3>
+                    <p>Leverage collective knowledge to overcome challenges. Tap into the expertise of seasoned entrepreneurs and mentors.</p>
+                  </div>
+                </div>
+                <div class="feature-images">
+                  <div class="feature-image" data-feature="1">
+                    <img src="images/Corporate Ladder Concept - Photos by Canva.html" alt="Showcase Your Progress">
+                  </div>
+                  <div class="feature-image" data-feature="2">
+                    <img src="path/to/learn-image.jpg" alt="Learn from the Best">
+                  </div>
+                  <div class="feature-image" data-feature="3">
+                    <img src="path/to/build-image.jpg" alt="Build with Confidence">
+                  </div>
+                  <div class="feature-image" data-feature="4">
+                    <img src="path/to/accelerate-image.jpg" alt="Accelerate Growth">
+                  </div>
+                </div>
+              </div>
             </section>
-
+            <!-- How it works -->
+            <section id="how-it-works" class="main special">
+              <div class="content-wrapper">
+                  <header class="">
+                      <h2>How Open Build Hub Works</h2>
+                  </header>
+                  <div class="cards-container">
+                      <div class="card" data-step="1">
+                          <h3 class="card-header">Showcase Your Progress</h3>
+                          <div class="card-content">
+                              <p>Share your entrepreneurial journey and gain visibility in real-time.</p>
+                          </div>
+                      </div>
+                      <div class="card" data-step="2">
+                          <h3 class="card-header">Learn from the Best</h3>
+                          <div class="card-content">
+                              <p>Access insights from successful creators and innovators.</p>
+                          </div>
+                      </div>
+                      <div class="card" data-step="3">
+                          <h3 class="card-header">Build with Confidence</h3>
+                          <div class="card-content">
+                              <p>Get real-time feedback on your projects.</p>
+                          </div>
+                      </div>
+                      <div class="card" data-step="4">
+                          <h3 class="card-header">Accelerate Growth</h3>
+                          <div class="card-content">
+                              <p>Leverage collective knowledge to overcome challenges.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
             <!-- Testimonials Section -->
             <section id="testimonials" class="main special">
                 <header class="major">
@@ -157,7 +215,9 @@
               </div>
               <div id="notification-content"></div>
             </div>
-
+            <div id="floating-cta">
+              <a href="#cta" class="button primary">Join Now</a>
+            </div>
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
@@ -168,11 +228,12 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/feed.js"></script>
     <script src="assets/js/animated.js"></script>
-	  <script src="assets/js/joinNow.js"></script>
+    <script src="assets/js/joinNow.js"></script>
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 
-    <div id="floating-cta">
-      <a href="#cta" class="button primary">Join Now</a>
-    </div>
+
+
 </body>
 </html>

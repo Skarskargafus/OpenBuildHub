@@ -3,8 +3,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-jQuery.noConflict();
-$(document).ready(function() {
+(function() {
 
 	var	$window = $(window),
 		$body = $('body'),
@@ -43,85 +42,144 @@ $(document).ready(function() {
 			}, 1000);
 		}
 	});
-	//typewriter
-	document.addEventListener('DOMContentLoaded', function() {
-		var app = document.getElementById('typewriter');
+	// How It Works Cards
+	document.addEventListener('DOMContentLoaded', () => {
+		gsap.registerPlugin(ScrollTrigger);
 	
-		var typewriter = new Typewriter(app, {
-			loop: true,
-			delay: 75,
+		const section = document.querySelector('#how-it-works');
+		const cards = section.querySelectorAll('.card');
+	
+		// Set initial state for all cards
+		gsap.set(cards, { 
+			y: '100%', 
+			opacity: 0
 		});
 	
-		typewriter
-			.typeString('Real-time Feedback')
-			.pauseFor(1000)
-			.deleteAll()
-			.typeString('Exclusive Case Studies')
-			.pauseFor(1000)
-			.deleteAll()
-			.typeString('Peer Support')
-			.pauseFor(1000)
-			.deleteAll()
-			.typeString('Expert Insights')
-			.pauseFor(1000)
-			.start();
+		// Set first card to be visible
+		gsap.set(cards[0], { 
+			y: '0%', 
+			opacity: 1
+		});
+	
+		// Create a timeline for the entire animation
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: section,
+				start: 'top top',
+				end: `+=${cards.length * 100}%`,
+				scrub: 1,
+				pin: true,
+				anticipatePin: 1,
+			}
+		});
+	
+		// Add animations for each card to the timeline
+		cards.forEach((card, index) => {
+			if (index === 0) return; // Skip the first card
+	
+			tl.to(card, { 
+				y: `${index * 15}%`, // Stack cards down the screen
+				opacity: 1,
+				duration: 1
+			});
+	
+			// Animate the current card's header
+			tl.to(card.querySelector('.card-header'), {
+				y: '-100%', // Move header up by 100% of its height
+				duration: 0.5
+			}, '<'); // Start at the same time as the card animation
+	
+			// Move the previous cards up to reveal the top of each
+			if (index > 0) {
+				for (let i = 0; i < index; i++) {
+					tl.to(cards[i], {
+						y: `-=${15}%`,
+						duration: 0.5
+					}, '<');
+				}
+			}
+		});
+	
+		// Add a final animation to allow scrolling past the section
+		tl.to({}, { duration: 0.5 });
 	});
-	var TxtRotate = function(el, toRotate, period) {
-		this.toRotate = toRotate;
-		this.el = el;
-		this.loopNum = 0;
-		this.period = parseInt(period, 10) || 2000;
-		this.txt = '';
-		this.tick();
-		this.isDeleting = false;
-	  };
-	  
-	  TxtRotate.prototype.tick = function() {
-		var i = this.loopNum % this.toRotate.length;
-		var fullTxt = this.toRotate[i];
-	  
-		if (this.isDeleting) {
-		  this.txt = fullTxt.substring(0, this.txt.length - 1);
-		} else {
-		  this.txt = fullTxt.substring(0, this.txt.length + 1);
+	
+// Typewriter effect setup
+const typewriter = document.getElementById('typewriter');
+const additionalText = ["Real-time Feedback", "Exclusive Case Studies", "Peer Support", "Expert Insights"];
+let i = 0;
+let arrayIndex = 0;
+let isDeleting = false; // Flag to track deleting state
+
+function typeWriter() {
+	if (arrayIndex < additionalText.length) {
+	  let displayText = additionalText[arrayIndex].substring(0, i);
+	  typewriter.innerHTML = displayText;
+	  let delay = 100; // Typing speed
+  
+	  if (isDeleting) {
+		i--; // Decrease i for deletion
+		delay /= 2; // Speed up deletion
+	  } else {
+		i++; // Increase i for typing
+	  }
+  
+	  // Check if typing is complete and not in deleting mode
+	  if (!isDeleting && i > additionalText[arrayIndex].length) {
+		delay = 1000; // Pause at end
+		isDeleting = true; // Start deleting
+	  } else if (isDeleting && i === -1) {
+		// If the string is completely deleted
+		isDeleting = false; // Reset deleting flag
+		arrayIndex++; // Move to the next string
+		delay = 500; // Pause before starting the next string
+	  }
+  
+	  if (arrayIndex >= additionalText.length) {
+		// If all strings have been processed, reset to start over or stop
+		arrayIndex = 0; // Reset to start over
+		isDeleting = false; // Ensure we're not deleting
+		// delay = 5000; // Longer pause at the end
+	  }
+  
+	  setTimeout(typeWriter, delay);
+	}
+  }
+
+// Start the typewriter effect
+window.onload = function() {
+  typeWriter();
+};
+// Feature fade-in animations
+document.addEventListener('DOMContentLoaded', () => {
+	const featureTexts = document.querySelectorAll('.feature-text');
+	const featureImages = document.querySelectorAll('.feature-image');
+	const featuresContainer = document.querySelector('.features-container');
+  
+	const observerOptions = {
+	  root: null,
+	  rootMargin: '0px',
+	  threshold: 0.5
+	};
+  
+	const observer = new IntersectionObserver((entries) => {
+	  entries.forEach(entry => {
+		if (entry.isIntersecting) {
+		  const featureIndex = entry.target.dataset.feature;
+		  featureTexts.forEach(text => {
+			text.style.opacity = text.dataset.feature === featureIndex ? 1 : 0;
+		  });
+		  featureImages.forEach(image => {
+			image.style.opacity = image.dataset.feature === featureIndex ? 1 : 0;
+		  });
 		}
-	  
-		this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
-	  
-		var that = this;
-		var delta = 300 - Math.random() * 100;
-	  
-		if (this.isDeleting) { delta /= 2; }
-	  
-		if (!this.isDeleting && this.txt === fullTxt) {
-		  delta = this.period;
-		  this.isDeleting = true;
-		} else if (this.isDeleting && this.txt === '') {
-		  this.isDeleting = false;
-		  this.loopNum++;
-		  delta = 500;
-		}
-	  
-		setTimeout(function() {
-		  that.tick();
-		}, delta);
-	  };
-	  
-	  window.onload = function() {
-		var elements = document.getElementsByClassName('txt-rotate');
-		for (var i=0; i<elements.length; i++) {
-		  var toRotate = elements[i].getAttribute('data-rotate');
-		  var period = elements[i].getAttribute('data-period');
-		  if (toRotate) {
-			new TxtRotate(elements[i], JSON.parse(toRotate), period);
-		  }
-		}
-		// INJECT CSS
-	// 	var css = document.createElement("style");
-	// 	css.type = "text/css";
-	// 	css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #64FFDA }";
-	// 	document.body.appendChild(css);
-	//   };
+	  });
+	}, observerOptions);
+  
+	featureImages.forEach(image => {
+	  observer.observe(image);
+	});
+  });
 	// Form validation
 	$('#signup-form').on('submit', function(e) {
 		e.preventDefault();
