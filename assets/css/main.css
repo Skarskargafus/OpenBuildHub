@@ -820,3 +820,37 @@ html {
 #how-it-works .card:nth-child(2) { z-index: 2; }
 #how-it-works .card:nth-child(3) { z-index: 3; }
 #how-it-works .card:nth-child(4) { z-index: 4; }
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .benefits {
+    flex-direction: column;
+  }
+
+  .benefit {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  input[type="email"], input[type="submit"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
