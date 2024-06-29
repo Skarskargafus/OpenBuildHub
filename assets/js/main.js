@@ -66,7 +66,7 @@
 			scrollTrigger: {
 				trigger: section,
 				start: 'top top',
-				end: `+=${cards.length * 100}%`,
+				end: `+=${cards.length * 120}%`,
 				scrub: 1,
 				pin: true,
 				anticipatePin: 1,
@@ -75,17 +75,17 @@
 	
 		// Add animations for each card to the timeline
 		cards.forEach((card, index) => {
-			if (index === 0) return; // Skip the first card
+			// if (index === 0) return; // Skip the first card
 	
 			tl.to(card, { 
 				y: `${index * 15}%`, // Stack cards down the screen
 				opacity: 1,
-				duration: 1
+				duration: .5
 			});
 	
 			// Animate the current card's header
 			tl.to(card.querySelector('.card-header'), {
-				y: '-100%', // Move header up by 100% of its height
+				y: '-125%', // Move header up by 100% of its height
 				duration: 0.5
 			}, '<'); // Start at the same time as the card animation
 	

@@ -66,6 +66,7 @@ a:hover {
 #header {
   display: flex;
   justify-content: space-between;
+  padding: 10px 0;
   /* align-items: center; */
   /* padding: 2rem 0; */
   /* padding-top: 5em; Adjust this value to be more than the height of your nav bar */
@@ -75,24 +76,30 @@ a:hover {
   display: flex; /* Makes the container a Flex container */
   /* align-items: center; Vertically centers the children */
   max-width: 200px;
+  font-size: 24px;
+  font-weight: bold;
   justify-content: flex-start; /* Aligns children to the start (left) */
 
 }
 
 
 #header nav ul {
-  display: flex;
-  list-style: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 #header nav ul li {
   margin-left: 2rem; /* Adjusted from 11rem to reduce space */
-
+    display: flex;
+    align-items: center;
 }
 
 #header nav ul li a {
-  color: var(--color-text);
-  font-weight: 600;
+  text-decoration: none;
+  color: #333; /* Text color */
+  padding: 8px 12px; /* Padding for the links */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .header {
@@ -105,7 +112,7 @@ a:hover {
 
 /* Main content */
 .main {
-  padding: 4rem 0;
+  /* padding: 4rem 0; */
   background: linear-gradient(200deg, #0f3460 0%, #0a192f 50%, #000000 100%);
 }
 
@@ -407,10 +414,12 @@ textarea:focus {
   right: 0;
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.9); /* Black with 70% opacity */
-  padding: 1em; Reduced vertical padding
   display: flex;
-  justify-content: left; /* Center the content horizontally */
-  align-items: center; /* Center the content vertically */
+  align-items: center;
+  justify-content: space-between;
+  /* max-width: 1200px; */
+  margin: 0 auto; /* Center the nav */
+  padding: 0 20px; /* Add some padding */
 }
 
 #nav .logo {
@@ -440,6 +449,8 @@ textarea:focus {
 
 #nav ul li a:hover {
   color: #64ffda; /* Your accent color */
+  background-color: #ddd; /* Background color on hover */
+  border-radius: 4px; /* Rounded corners on hover */
 }
 
 #main {
@@ -647,9 +658,6 @@ html {
 #typewriter {
   color: #64ffda; /* Your accent color */
   font-weight: bold;
-}
-#typewriter {
-  /* font-family: "Courier New", Courier, monospace; Gives it a typewriter-style font */
   white-space: pre; /* Ensures the spacing is consistent */
   font-size: 20px; /* Adjust size as needed */
   color: #333; /* Text color */
@@ -718,6 +726,10 @@ html {
 #hero-signup-form input[type="submit"]:hover {
   background-color: #0d8ae5; /* Darker shade for hover */
 }
+
+#signup{
+  padding: 2em;
+}
 /* Privacy Note */
 .privacy-note {
   font-size: 1em;
@@ -728,7 +740,7 @@ html {
 /* How It Works Cards */
 #how-it-works {
   position: relative;
-  height: 100vh;
+  height: 120vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -737,7 +749,7 @@ html {
 
 #how-it-works .cards-container {
   position: relative;
-  height: 70vh;
+  height: 95vh;
   width: 90vw;
   max-width: 1400px;
   overflow: hidden;
@@ -745,12 +757,12 @@ html {
 
 #how-it-works .card {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
   max-width: 1200px;
-  height: 70vh;
+  height: 50vh;
   display: flex;
   align-items: center;
   background-color: #ffffff;
@@ -762,7 +774,7 @@ html {
   position: absolute;
   left: 5%;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-100%);
   width: 40%;
   padding: 2em;
   box-sizing: border-box;
@@ -782,14 +794,14 @@ html {
   flex-direction: column;
   justify-content: center
 }
-#how-it-works .card:first-child {
+/* #how-it-works .card:first-child {
   transform: translateX(50%) translateY(50);
   opacity: 1 !important;
-}
+} */
 
 #how-it-works .card h3 {
   color: #333333;
-  font-size: 2em;
+  font-size: 1.5em;
   margin-bottom: 0.5em;
   transition: transform 0.3s ease, font-size 0.3s ease;
 }
@@ -805,14 +817,14 @@ html {
   transform: translateX(-50%) translateY(0);
 }
 #how-it-works .card.prev {
-  transform: translateX(-50%) translateY(-90%);
+  transform: translateX(-50%) translateY(-50%);
 }
 #how-it-works .card.prev h3 {
-  transform: translateY(-100%);
+  transform: translateY(-120%);
   font-size: 1.5em;
 }
 #how-it-works .card.prev p {
-  opacity: 0;
+  opacity: 1;
 }
 
 
