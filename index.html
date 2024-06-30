@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'> -->
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
 <body class="is-preload main">
@@ -29,6 +30,8 @@
 
             <!-- Hero Section -->
             <section id="hero">
+              <div id="large-header" class="large-header">
+              <canvas id="demo-canvas"></canvas>          
               <div class="content">
                 <div id="typewriter-container">
                   <h1>Empower Your Entrepreneurial Journey with 
@@ -45,19 +48,88 @@
                     />
                     <input
                       type="submit"
-                      value="Join Free & Start Growing"
+                      value="Join Now & Build"
                       class="primary"
                     />
                   </form>
                   <p class="privacy-note">
                     Your data is safe with us. Unsubscribe anytime.
                   </p>
-              </div>
+              </div>          
+            </div>
           </section>
-
-
-            <!-- Features Section -->
-            <section id="features" class="main special">
+            <!-- Benefits Section -->
+            <section id="benefits-carousel" class="gradient-bg">
+              <div class="carousel-container">
+                <h2 class="section-title">Join our community of innovators and entrepreneurs</h2>
+                <div class="tabs">
+                  <button class="tab-button active" data-tab="showcase">Showcase Progress</button>
+                  <button class="tab-button" data-tab="learn">Learn from Experts</button>
+                  <button class="tab-button" data-tab="build">Build Confidently</button>
+                  <button class="tab-button" data-tab="accelerate">Accelerate Growth</button>
+                  <button class="tab-button" data-tab="expand">Expand Network</button>
+                </div>
+                
+                <div class="tab-content-wrapper">
+                  <div class="tab-content active" id="showcase">
+                    <div class="content-text">
+                      <h3>Showcase Your Progress</h3>
+                      <p>Share your entrepreneurial journey and gain visibility in our thriving community.</p>
+                      <a href="#join" class="cta-button">Start Sharing</a>
+                    </div>
+                    <div class="content-image">
+                      <img src="path-to-showcase-image.svg" alt="Showcase Your Progress">
+                    </div>
+                  </div>
+                  
+                  <div class="tab-content" id="learn">
+                    <div class="content-text">
+                      <h3>Learn from the Best</h3>
+                      <p>Access insights from successful creators and innovators to fuel your growth.</p>
+                      <a href="#join" class="cta-button">Start Learning</a>
+                    </div>
+                    <div class="content-image">
+                      <img src="path-to-learn-image.svg" alt="Learn from the Best">
+                    </div>
+                  </div>
+                  
+                  <div class="tab-content" id="build">
+                    <div class="content-text">
+                      <h3>Build with Confidence</h3>
+                      <p>Get real-time feedback on your projects and iterate with assurance.</p>
+                      <a href="#join" class="cta-button">Start Building</a>
+                    </div>
+                    <div class="content-image">
+                      <img src="path-to-build-image.svg" alt="Build with Confidence">
+                    </div>
+                  </div>
+                  
+                  <div class="tab-content" id="accelerate">
+                    <div class="content-text">
+                      <h3>Accelerate Growth</h3>
+                      <p>Leverage collective knowledge to overcome challenges and fast-track your success.</p>
+                      <a href="#join" class="cta-button">Start Accelerating</a>
+                    </div>
+                    <div class="content-image">
+                      <img src="path-to-accelerate-image.svg" alt="Accelerate Growth">
+                    </div>
+                  </div>
+                  
+                  <div class="tab-content" id="expand">
+                    <div class="content-text">
+                      <h3>Expand Your Network</h3>
+                      <p>Connect with potential collaborators and mentors to broaden your horizons.</p>
+                      <a href="#join" class="cta-button">Start Networking</a>
+                    </div>
+                    <div class="content-image">
+                      <img src="path-to-expand-image.svg" alt="Expand Your Network">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            
+            <!-- <section id="features" class="main special">
               <header class="major">
                 <h2>Why Join OpenBuild Hub?</h2>
               </header>
@@ -79,6 +151,10 @@
                     <h3>Accelerate Growth</h3>
                     <p>Leverage collective knowledge to overcome challenges. Tap into the expertise of seasoned entrepreneurs and mentors.</p>
                   </div>
+                  <div class="feature-text" data-feature="5">
+                    <h3>Expand Your Network</h3>
+                    <p>connect with potential collaborators and mentors. Networking is a vital aspect of entrepreneurship, making this a highly desirable benefit.</p>
+                  </div>
                 </div>
                 <div class="feature-images">
                   <div class="feature-image" data-feature="1">
@@ -93,20 +169,28 @@
                   <div class="feature-image" data-feature="4">
                     <img src="path/to/accelerate-image.jpg" alt="Accelerate Growth">
                   </div>
+                  <div class="feature-image" data-feature="5">
+                    <img src="path/to/accelerate-image.jpg" alt="Accelerate Growth">
+                  </div>
                 </div>
               </div>
-            </section>
+            </section> -->
             <!-- How it works -->
             <section id="how-it-works" class="main special">
               <div class="content-wrapper">
+                
                   <header class="">
                       <h2>How Open Build Hub Works</h2>
                   </header>
                   <div class="cards-container">
+                    
                       <div class="card" data-step="1">
+                        
                           <h3 class="card-header">Showcase Your Progress</h3>
                           <div class="card-content">
+                          
                               <p>Share your entrepreneurial journey and gain visibility in real-time.</p>
+                       
                           </div>
                       </div>
                       <div class="card" data-step="2">
@@ -127,7 +211,9 @@
                               <p>Leverage collective knowledge to overcome challenges.</p>
                           </div>
                       </div>
+                    
                   </div>
+               
               </div>
           </section>
             <!-- Testimonials Section -->
@@ -234,6 +320,9 @@
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/rAF.js"></script>
+    <script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js"></script>
+    <script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/TweenLite.min.js"></script>
 
 
 
