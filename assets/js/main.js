@@ -500,6 +500,70 @@ document.addEventListener('DOMContentLoaded', () => {
 		  });
 		});
 	  });
+	  document.addEventListener('DOMContentLoaded', function() {
+		const cardStack = document.querySelector('.card-stack');
+		const cards = Array.from(cardStack.querySelectorAll('.card'));
+		const prevBtn = document.querySelector('.prev-arrow');
+		const nextBtn = document.querySelector('.next-arrow');
+		let currentIndex = 1; // Start at 1 because of the cloned last card at the beginning
+	  
+		function updateCards() {
+			cards.forEach((card, index) => {
+			  card.classList.remove('active', 'prev', 'next');
+			  if (index === currentIndex) {
+				card.classList.add('active');
+			  } else if (index === getPrevIndex()) {
+				card.classList.add('prev');
+			  } else if (index === getNextIndex()) {
+				card.classList.add('next');
+			  }
+			});
+		  }
+		  
+		  function getPrevIndex() {
+			return (currentIndex - 1 + cards.length) % cards.length;
+		  }
+		  
+		  function getNextIndex() {
+			return (currentIndex + 1) % cards.length;
+		  }
+	  
+		function nextCard() {
+		  currentIndex = getNextIndex();
+		  updateCards();
+		}
+	  
+		function prevCard() {
+		  currentIndex = getPrevIndex();
+		  updateCards();
+		}
+	  
+		nextBtn.addEventListener('click', nextCard);
+		prevBtn.addEventListener('click', prevCard);
+	  
+		// Add touch swipe functionality
+		let startX;
+		cardStack.addEventListener('touchstart', e => {
+		  startX = e.touches[0].clientX;
+		});
+	  
+		cardStack.addEventListener('touchmove', e => {
+		  if (!startX) return;
+		  const currentX = e.touches[0].clientX;
+		  const diff = startX - currentX;
+		  if (Math.abs(diff) > 50) { // Minimum swipe distance
+			if (diff > 0) {
+			  nextCard();
+			} else {
+			  prevCard();
+			}
+			startX = null; // Reset to prevent continuous swiping
+		  }
+		});
+	  
+		// Initialize
+		updateCards();
+	  });
 	// Nav.
 		var $nav = $('#nav');
 
